@@ -10,14 +10,15 @@ router.get('/', dbController, (req, res) => {
   return res.status(200).json(res.locals.data)
 });
 
+//route to signup
+router.post('/signup', userController, (req, res) => {
+  return res.status(200).json(res.locals.signup);
+})
+
 // route to login
 router.get('/login', userController, (req, res) => {
   return res.status(200).json(res.locals.login);
 })
 
-//route to signup
-router.post('/signup', userController, (req, res) => {
-  return res.status(200).json(res.locals.signup);
-})
 
 module.exports = router;
