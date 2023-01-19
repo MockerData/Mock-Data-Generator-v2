@@ -5,6 +5,7 @@ const router = express.Router();
 const {getEmails, getPhoneNumbers} = require('../controllers/otherDataController')
 const {isLoggedIn, startSession} = require('../controllers/sessionController')
 const {setCookie, setSSIDCookie} = require('../controllers/cookieController')
+const {getBcrypt, createUser, verifyUser} = require('../controllers/userController')
 
 const {makeArray, getFirstName, getMiddleName, getlastName, getCountry} = require('../controllers/jsonController')
 // dbController is an array of all of our controller functions, NOT an object with controller methods
@@ -17,20 +18,21 @@ router.get('/',  controllers ,(req, res) => {
   return res.status(200).json(res.locals.data)
 });
 
-//post request for checking db 
+//route to signup
+router.post('/signup', 
+  getBcrypt, 
+  createUser, 
+  setSSIDCookie, 
+  (req, res) => {
+    return res.status(200).json('signup successful');
+})
 
-// router.post('/', (req, res) => {
-//   const post = new Profile({
-//     username: req.body.username,
-//     password: req.body.password
-//   })
-//   post.save((err, post) =>{
-//     if (err) {
-//       console.log(err)
-//       return next(err)}
-//     res.locals.profile = post;
-//   })
-//   return res.status(200).json(res.locals.profile)
-// })
+// route to login
+router.post('/login', 
+  verifyUser,
+  setSSIDCookie, 
+  (req, res) => {
+  return res.status(200).json('login successful');
+})
 
 module.exports = router;
