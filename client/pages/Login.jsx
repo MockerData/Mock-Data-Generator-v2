@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import '../styles/Login.css';
 
 const Login = () => {
 
@@ -24,27 +23,27 @@ const Login = () => {
     }
   };
   return (
-    <div >
+    <div className='Login'>
       {/* display error message if error */}
-      <div>{error}</div>
       {/* useState to track the data in each input field */}
-      <form
+      <form className='login-form'
         onSubmit={handleLogin}
-      >
+        >
         <input
           placeholder="Username:"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-        />
+          />
         <input
           type="password"
           placeholder="Password:"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        />
+          />
         <button>Login</button>
+          <div className='error'>{error}</div>
       </form>
-      <div>
+      <div className='login-additional'>
         <br/>
           Don't have an account? 
         <br/>

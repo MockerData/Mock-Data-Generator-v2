@@ -16,8 +16,9 @@ textarea{
   border-radius: 12px !important;
   /* border: 2px solid #ff8906 !important; */
   border: 2px solid #FFB61D !important;
-
 }
+
+
 
 button {
   /* background-color: #ff8906 !important; */
@@ -27,6 +28,7 @@ button {
   font-weight: bold !important;
   border-radius: 5px !important;
   box-shadow: 3px 3px 0px 1px rgba(0, 0, 0, 0.79) !important;
+  transition: background-color 0.3s ease !important;
   cursor: pointer;
 }
 
@@ -40,6 +42,28 @@ button:hover {
 button:active {
   box-shadow: 0 5px #666;
   transform: translateY(2px);
+}
+
+/* Webkit Scrollbar */
+::-webkit-scrollbar {
+  margin-left: -2px;
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2f3136;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f8f8f8;
+  border-radius: 6px;
+  height: 80%;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -94,9 +118,22 @@ header h3 {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 60%;
+}
+
+.container-2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: left;
   padding: 20px;
+  width: 100%;
 }
 
 #form {
@@ -117,6 +154,7 @@ header h3 {
   border: 0.5px solid #FFB61D;
   height: 3rem !important;
   margin-left: 0.5rem;
+  padding-left: 0.5rem;
   /* box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.79) !important; */
 }
 
@@ -171,8 +209,9 @@ header h3 {
   display: flex;
   align-items: center;
   margin-top: 20px;
-  width: 75%;
+  width: 100%;
 }
+
 
 #text_output {
   width: 100%;
@@ -245,3 +284,83 @@ margin-left: 10px;
 .X-button:hover {
 background-color: #cc0000;
 }
+
+
+/* Login.jsx CSS */
+
+.Login {
+  background-color: #F1F1F1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  }
+  
+  .Login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 10rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #ccc;
+  }
+
+  .Login .error {
+  color: red;
+  font-weight: bold;
+  top: 600px;
+  position: absolute;
+  }
+  
+  .Login input {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  width: 150%;
+  box-shadow: 0px 0px 5px #ccc;
+  }
+  
+  .Login button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #3498DB;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  }
+  
+  .Login button:hover {
+  background-color: #2980B9;
+  }
+
+  .login-additional {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  
+  }
+  
+  .login-additional a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: color 0.3s ease;
+  }
+  
+  .login-additional a:hover {
+  color: #FFB61D;
+  }
+  
+  .Login div:first-child {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  }
