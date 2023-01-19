@@ -1,16 +1,21 @@
-/**
- * @module mainContainer.jsx
- * @description Stateful container for functional compononents
- */
+import React from "react";
 
+<<<<<<< Updated upstream
 import React, { useEffect, useState, useRef } from 'react';
 import DataSelector from '../components/dataSelector.jsx'
 import { v4 as uuidv4 } from 'uuid'
 import axios from 'axios'
 import copyIcon from '../copyIcon.svg'
+=======
+>>>>>>> Stashed changes
 
 const MainContainer = () => {
+  
+  return(
+    <div id="main">
+      <div id="quantity_container"></div>
 
+<<<<<<< Updated upstream
   const [dataTypes, setDataTypes] = useState([])
   const dataInput = useRef()
   const quantInput = useRef()
@@ -99,8 +104,12 @@ const MainContainer = () => {
           <button id="submit_button" onClick={handleSubmit} >Generate Data</button>
         </div>
       </div>
+=======
+>>>>>>> Stashed changes
     </div>
   )
-};
+}
+
+
 
 export default MainContainer;
