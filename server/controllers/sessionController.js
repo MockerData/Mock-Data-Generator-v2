@@ -5,9 +5,10 @@ const sessionController = {};
 sessionController.isLoggedIn = (req, res, next) => {
   if (req.cookies.ssid) {
     const { ssid } = req.cookies;
-    Session.findOne
+    Session.findOne({ cookieId: ssid })
       .then((session) => {
         if (session) {
+          console.log('isloggin:', session)
           res.locals.user = session;
           return next();
         }
@@ -20,16 +21,19 @@ sessionController.isLoggedIn = (req, res, next) => {
         }
         return next(newErr);
       })
-  } else {
-    res.redirect('/login')
-  }
+  } 
+  if (req.query.quantity <= 15) return next();
+  else return res.status(400).json('Please sign up to access larger data quantity');
+  // return res.status(400).json('error' );  
 }
 
 sessionController.startSession = (req, res, next) => {
-  const { username, password } = req
-  Session.create({ username, password })
+  const { _id } = res.locals.user;
+  console.log('startsession1 res.locals.user', res.locals.user);
+  Session.create({cookieId: _id})
     .then((session) => {
       res.locals.user = session;
+      console.log('startsession2:', session);
       return next();
     })
     .catch((err) => {
@@ -42,4 +46,4 @@ sessionController.startSession = (req, res, next) => {
     
 }
 
-
+module.exports = sessionController;
