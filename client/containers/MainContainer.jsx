@@ -9,7 +9,8 @@ import { v4 as uuidv4 } from 'uuid'
 import axios from 'axios'
 import copyIcon from '../copyIcon.svg'
 
-const MainContainer = () => {
+const MainContainer = (props) => {
+  const { setLoggedIn, loggedIn, user} = props;
 
   const [dataTypes, setDataTypes] = useState([])
   const dataInput = useRef()
@@ -68,7 +69,6 @@ const MainContainer = () => {
   console.log(textAreaInput);
 
 
-
   return (
     <div id="main_container">
       <div className="container-2">
@@ -79,12 +79,15 @@ const MainContainer = () => {
           <select ref={dataInput} name="dataSelect" id="dataSelect">
             <option value="firstName">First Name</option>
             <option value="fullName">Full Name</option>
-            <option value="fullNameMiddle">First Middle Last Name</option>
+            <option value="fullNameMiddle">First/Middle/Last Name</option>
             <option value="email">Email</option>
             <option value="phoneNumber">Phone Number</option>
             <option value="country">Country</option>
           </select>
-          <button id='add_button' onClick={handleAdd} >Add Data Type</button>
+          <div className="dt-buttons">
+            <button id='add_button' onClick={handleAdd} >Add Data Type</button>
+            {dataTypes.length !== 0 && <button id='clear-button' onClick={() => setDataTypes([])}>Clear</button>}
+          </div>
         </div>
         <div id="datatype_selector">
           <DataSelector dataTypes={dataTypes} handleDelete={handleDelete} />

@@ -83,7 +83,8 @@ header {
 }
 
 .header-buttons {
-
+  display: flex;
+  gap: 10px;
 }
 
 .header-button {
@@ -96,7 +97,8 @@ header {
 }
 
 .header-text {
-  width: 50vw;
+  max-width: 870px;
+  width: 55vw; /* note this for header width */
   justify-content: flex-start;
   /* border: 1px solid white; */
 }
@@ -133,13 +135,15 @@ header h3 {
   justify-content: center;
   align-items: left;
   padding: 20px;
-  width: 100%;
+  width: 90%;
+  /* border: 1px solid black; */
 }
 
 #form {
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #quantity_selector-label {
@@ -152,7 +156,7 @@ header h3 {
   width: 60px;
   border-radius: 5px;
   border: 0.5px solid #FFB61D;
-  height: 3rem !important;
+  height: 2.6rem !important;
   margin-left: 0.5rem;
   padding-left: 0.5rem;
   /* box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.79) !important; */
@@ -165,15 +169,32 @@ header h3 {
   color: rgb(0, 0, 0);
   font-weight: thin;
   border-radius: 5px;
-  height: 3rem;
+  height: 2.6rem;
   /* box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.79); */
   cursor: pointer;
 }
 
 
+.dt-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#clear-button {
+  /* padding: 8px 15px; */
+  margin: auto;
+  margin-left: -0px;
+  color: #FFB61D !important;
+  background-color: #333 !important;
+}
+
 
 #add_button {
-  background-color: #4CAF50;
+  text-overflow: clip;
   color: white;
   padding: 8px 15px; 
   border: none;
@@ -194,7 +215,6 @@ header h3 {
 }
 
 #submit_button {
-  background-color: #4CAF50;
   color: white;
   padding: 8px 15px;
   border: none;
@@ -210,6 +230,7 @@ header h3 {
   align-items: center;
   margin-top: 20px;
   width: 100%;
+  min-width: 470px;
 }
 
 
@@ -221,7 +242,7 @@ header h3 {
   box-sizing: border-box;
   border-radius: 4px;
   background-color: #f8f8f8;
-  font-size: 16px;
+  font-size: 14px;
   resize: none;
 }
 
@@ -307,12 +328,11 @@ background-color: #cc0000;
   box-shadow: 0px 0px 10px #ccc;
   }
 
-  .Login .error {
-  color: red;
-  font-weight: bold;
-  top: 600px;
-  position: absolute;
+  .login-text {
+    margin-top: -80px;
+    margin-bottom: 50px;
   }
+
   
   .Login input {
   margin: 1rem 0;
@@ -364,3 +384,150 @@ background-color: #cc0000;
   font-weight: bold;
   margin-bottom: 1rem;
   }
+
+  /* Signup CSS */
+
+
+.Signup {
+  background-color: #F1F1F1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  }
+  
+  .Signup form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 10rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #ccc;
+  }
+
+  .signup-text {
+    margin-top: -80px;
+    margin-bottom: 50px;
+  }
+
+  .error {
+  color: red;
+  font-weight: 400;
+  top: 600px;
+  position: absolute;
+  }
+  
+  .Signup input {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  width: 150%;
+  box-shadow: 0px 0px 5px #ccc;
+  }
+  
+  .Signup button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #3498DB;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  }
+  
+  .Signup button:hover {
+  background-color: #2980B9;
+  }
+
+  .signup-additional {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  
+  }
+  
+  .signup-additional a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: color 0.3s ease;
+  }
+  
+  .signup-additional a:hover {
+  color: #FFB61D;
+  }
+  
+  .Signup div:first-child {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  }
+
+
+  @media only screen and (max-width: 1160px) {
+    /* changes for elements under 1000px width */
+    textarea {
+      border-radius: 8px;
+    }
+    button {
+      font-size: 14px;
+      padding: 6px 10px;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      border-radius: 4px;
+      height: 80%;
+    }
+    header {
+      padding: 10px;
+    }
+    header h1 {
+      font-size: 24px;
+    }
+    header h3 {
+      font-size: 16px;
+    }
+    .mocker-logo {
+      width: 150px;
+    }
+    .header-button {
+      padding: 6px 8px;
+      margin-left: 5px;
+    }
+    #main_container {
+      width: 80%;
+      padding: 10px;
+    }
+    #main_container h2 {
+      font-size: 24px;
+    }
+    .container-2 {
+      width: 95%;
+      padding: 10px;
+    }
+    #form {
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    #quantity_selector-label {
+      font-size: 14px;
+      margin-right: 5px;
+    }
+    #quantity_selector {
+      width: 40px;
+    }
+  }
+    

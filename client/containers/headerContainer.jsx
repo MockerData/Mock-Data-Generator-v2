@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-const HeaderContainer = () => { 
+const HeaderContainer = (props) => { 
+  const { user, setLoggedIn, loggedIn } = props;
     return (
       <header id='header'>
         <div className="header-text">
@@ -10,14 +11,15 @@ const HeaderContainer = () => {
           <img src='../styles/logos/mockerwhite.png' className='mocker-logo' alt="" />
           <h3>Generate mock data for your database.</h3>
         </div>
-        <div className="header-buttons">
+        {loggedIn && <h1 style={{fontWeight: '400'}}>Welcome {user.username}</h1>}
+        {!loggedIn && <div className="header-buttons">
           <Link to="/login">
             <button className="header-button">Login</button>
           </Link>
           <Link to="/signup">
             <button className="header-button">Sign Up</button>
           </Link>
-        </div>
+        </div>}
       </header>
     )
 }

@@ -9,12 +9,18 @@ import HeaderContainer from '../containers/headerContainer.jsx'
 import FooterContainer from '../containers/footerContainer.jsx'
 
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+
+  const { user, setLoggedIn, loggedIn } = props;
+
+
+  //fetch call to check ssid/session if user is logged in
+
   return (
     <div id = 'root-child'>
 
-      <HeaderContainer />
-      <MainContainer />
+      <HeaderContainer user = {user} setLoggedIn = {setLoggedIn} loggedIn = {loggedIn} />
+      <MainContainer user = {user} setLoggedIn = {setLoggedIn} loggedIn = {loggedIn} />
       <FooterContainer />
     </div>
   );

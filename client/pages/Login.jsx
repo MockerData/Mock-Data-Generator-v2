@@ -29,6 +29,7 @@ const Login = () => {
       <form className='login-form'
         onSubmit={handleLogin}
         >
+          <h1 className='login-text'>Login</h1>
         <input
           placeholder="Username:"
           value={username}

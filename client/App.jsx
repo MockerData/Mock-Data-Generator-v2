@@ -10,12 +10,13 @@ import Dashboard from './pages/Dashboard.jsx';
 
 
 const App = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({username: 'test'});
+  const [loggedIn, setLoggedIn] = useState(true);
 
   return (
     <div id = 'root-child'>
       <Routes>
-        <Route path="/" element={<Dashboard user = {user} />} />
+        <Route path="/" element={<Dashboard user = {user} setLoggedIn = {setLoggedIn} loggedIn = {loggedIn} />} />
         <Route path="/login" element={<Login setUser = {(user) => setUser(user)} />} />
         <Route path="/signup" element={<SignUp setUser = {(user) => setUser(user)} />} />
       </Routes>

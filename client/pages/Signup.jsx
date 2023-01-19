@@ -4,6 +4,7 @@ import axios from 'axios'
 
 const SignUp = () => {
 
+
   // useState to update and track the input fields from the signup page
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -24,11 +25,12 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className='Signup'>
       {/* display error message if error */}
-      <div>{error}</div> 
       {/* useState to track the data in each input field */}
-        <form onSubmit={handleSignUp}>
+        <form className='signup-form' onSubmit={handleSignUp}>
+        <h1 className='signup-text'>Signup</h1>
+
           <input
             placeholder='Username:'
             value={username}
@@ -41,15 +43,16 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button>Sign Up</button>
+          <div className='error'>{error}</div> 
         </form>
-        <div>
+        <div className='signup-additional'>
           <br/>
             Have an account already? 
           <br/>
           <Link to="/login">
             Login right here!
           </Link>
-        </div>
+      </div>
     </div>
   );
 };
