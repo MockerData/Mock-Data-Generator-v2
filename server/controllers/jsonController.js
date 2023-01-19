@@ -87,6 +87,9 @@ jsonController.getCountry = (req, res, next) => {
   try{
     const tempArr = [...res.locals.data];
     for(let i = 0; i < quantity; i++){
+      if (tempArr[i] === undefined){
+        tempArr.push({'country': countries[[rng(countries.length)]].name})
+      }
       tempArr[i]['country'] = countries[[rng(countries.length)]].name;
     }
     res.locals.data = tempArr;
