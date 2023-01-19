@@ -10,6 +10,7 @@ userController.getBcrypt = (req, res, next) => {
       .then(hash => {
           req.body.password = hash;
           res.locals.user = req.body;
+          console.log('bcrypt req.body', req.body)
           return next();
       })
 }
@@ -21,6 +22,8 @@ userController.createUser = async (req, res, next) => {
     const user = await Profile.findOne({ username: username });
     if (!user) {
       const newUser = await Profile.create({ username: username, password: hashedPass });
+      console.log('newUser:', newUser);
+      res.locals.user = newUser;
       return next()
     }
     else {
@@ -30,8 +33,7 @@ userController.createUser = async (req, res, next) => {
   catch (err) {
     const error = {
       log: 'Express error handler caught error in userContoller.createUser',
-      status: 500,
-      message: { err: 'An error occurred' },
+      message: { err: 'Error: problem creating user' },
     }
     next(error);
   }
@@ -54,8 +56,7 @@ userController.verifyUser = async (req, res, next) => {
   catch (err) {
     const error = {
       log: 'Express error handler caught error in userContoller.verifyUser',
-      status: 500,
-      message: { err: 'An error occurred' },
+      message: { err: 'Error: problem verifying user' },
     }
     next(error);
   }
