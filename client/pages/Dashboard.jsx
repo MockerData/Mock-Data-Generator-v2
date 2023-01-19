@@ -12,7 +12,6 @@ import FooterContainer from '../containers/footerContainer.jsx'
 const Dashboard = () => {
   return (
     <div id = 'root-child'>
-
       <HeaderContainer />
       <MainContainer />
       <FooterContainer />

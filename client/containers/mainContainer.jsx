@@ -11,10 +11,11 @@ import copyIcon from '../copyIcon.svg'
 
 const MainContainer = () => {
 
-  const [dataTypes, setDataTypes] = useState([])
-  const dataInput = useRef()
-  const quantInput = useRef()
-  const textAreaInput = useRef()
+  const [dataTypes, setDataTypes] = useState([]);
+  const dataInput = useRef();
+  const quantInput = useRef();
+  const textAreaInput = useRef();
+  const [error, setError] = useState('');
 
   function handleAdd(event) {
     const typeOfData = dataInput.current.value;

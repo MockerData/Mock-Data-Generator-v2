@@ -14,7 +14,7 @@ const { Country } = require('../models/models');
 // const controllers = [makeArray, getFirstNames, getMiddleNames, getLastNames, getCountry, getEmails, getPhoneNumbers]
 const controllers  = [makeArray, getFirstName, getMiddleName, getlastName, getEmails, getPhoneNumbers, getCountry]
 
-router.get('/',  controllers ,(req, res) => {
+router.get('/', controllers ,(req, res) => {
   return res.status(200).json(res.locals.data)
 });
 
