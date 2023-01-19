@@ -17,7 +17,7 @@ const SignUp = () => {
     try {
       const response = await axios.post('/api/signup', { username, password });
       console.log(response);
-      if (response) navigate('/dashboard');
+      if (response) navigate('/');
     } catch (err) {
       setError('Invalid Username/Password');
       console.log('err:', err);

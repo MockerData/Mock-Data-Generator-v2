@@ -14,7 +14,7 @@ const { Country } = require('../models/models');
 // const controllers = [makeArray, getFirstNames, getMiddleNames, getLastNames, getCountry, getEmails, getPhoneNumbers]
 const controllers  = [makeArray, getFirstName, getMiddleName, getlastName, getEmails, getPhoneNumbers, getCountry]
 
-router.get('/',  controllers ,(req, res) => {
+router.get('/', isLoggedIn, controllers ,(req, res) => {
   return res.status(200).json(res.locals.data)
 });
 
@@ -23,6 +23,7 @@ router.post('/signup',
   getBcrypt, 
   createUser, 
   setSSIDCookie, 
+  startSession, 
   (req, res) => {
     return res.status(200).json('signup successful');
 })
@@ -30,7 +31,8 @@ router.post('/signup',
 // route to login
 router.post('/login', 
   verifyUser,
-  setSSIDCookie, 
+  setSSIDCookie,
+  startSession,
   (req, res) => {
   return res.status(200).json('login successful');
 })
