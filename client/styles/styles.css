@@ -246,7 +246,16 @@ header h3 {
 }
 
 #add_and_submit {
-  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#add_and_submit h3 {
+  color: red;
+  font-weight: 400;
+  padding-left: 25px;
+  margin-top: 5px;
 }
 
 #submit_button {

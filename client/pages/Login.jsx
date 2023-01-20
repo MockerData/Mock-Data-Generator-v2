@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { set } from 'mongoose';
 
-const Login = () => {
+const Login = (props) => {
+  const { setLoggedIn, loggedIn } = props;
 
   // useState to update and track the input fields from the login page
   const [password, setPassword] = useState('');
@@ -16,7 +18,10 @@ const Login = () => {
     try {
       const response = await axios.post(`/api/login`, { username, password });
       console.log(response);
-      if (response) navigate('/');
+      if (response){ 
+        setLoggedIn(true);
+        navigate('/')
+      };
     } catch (err) {
       setError('Invalid Username/Password');
       console.log('err:', err)

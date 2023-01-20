@@ -9,9 +9,9 @@ const ProfileSchema = new mongoose.Schema({
 const Profile = mongoose.model("Profile", ProfileSchema)
 
 
-const sessionSchema = new mongoose.Schema({
-  cookieId: { type: String, required: true, unique: true },
-  createdAt: { type: Date, expires: 60, default: Date.now }
+const sessionSchema = new mongoose.Schema({ 
+  cookieId: { type: String, required: true },
+  createdAt: { type: Date, expires: 3600, default: Date.now }
 });
 
 

@@ -18,6 +18,7 @@ router.get('/', isLoggedIn, controllers ,(req, res) => {
   return res.status(200).json(res.locals.data)
 });
 
+
 //route to signup
 router.post('/signup', 
   getBcrypt, 

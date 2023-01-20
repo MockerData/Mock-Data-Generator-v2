@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
-const SignUp = () => {
+const SignUp = (props) => {
+  const { setLoggedIn, loggedIn } = props;
+
 
 
   // useState to update and track the input fields from the signup page
@@ -17,7 +19,10 @@ const SignUp = () => {
     try {
       const response = await axios.post('/api/signup', { username, password });
       console.log(response);
-      if (response) navigate('/');
+      if (response) {
+        setLoggedIn(true);
+        navigate('/login');
+      };
     } catch (err) {
       setError('Invalid Username/Password');
       console.log('err:', err);

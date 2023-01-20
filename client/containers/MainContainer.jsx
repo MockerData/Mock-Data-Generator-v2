@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from 'uuid'
 import axios from 'axios'
 import copyIcon from '../copyIcon.svg'
 
+
 const MainContainer = (props) => {
   const { setLoggedIn, loggedIn, user} = props;
 
@@ -48,6 +49,12 @@ const MainContainer = (props) => {
   function handleSubmit(event) {
     const stateData = dataTypes
     const quantity = quantInput.current.value
+    console.log('quantity', quantity);
+    if (loggedIn === false && quantity > 15) {
+      setError('Please login to access datasets larger than 15')
+      textAreaInput.current.value = ''
+      return;
+    }
     let fetchString = `http://localhost:3000/api?quantity=${quantity}`
 
     // build our url with all of the datatypes in the query string
@@ -76,38 +83,43 @@ const MainContainer = (props) => {
   return (
     <div id="main_container">
       <div className="container-2">
-        <div id='form'>
-          <label id='quantity_selector-label'> Quantity:
-            <input ref={quantInput} id="quantity_selector" type="number" min='1' max = '100' defaultValue= '5'/>
-          </label>
-          <select ref={dataInput} name="dataSelect" id="dataSelect">
-            <option value="firstName">First Name</option>
-            <option value="fullName">Full Name</option>
-            <option value="fullNameMiddle">First/Middle/Last Name</option>
-            <option value="email">Email</option>
-            <option value="phoneNumber">Phone Number</option>
-            <option value="country">Country</option>
-          </select>
-          <div className="dt-buttons">
-            <button id='add_button' onClick={handleAdd} >Add Data Type</button>
-            {dataTypes.length !== 0 && <button id='clear-button' onClick={() => setDataTypes([])}>Clear</button>}
-          </div>
-        </div>
-        <div id="datatype_selector">
-          <DataSelector dataTypes={dataTypes} handleDelete={handleDelete} />
-        </div>
-        {/* make a button to add new DataType */}
-        <div id= 'text_box_and_copy'>
-          <textarea ref={textAreaInput} id="text_output">
-          </textarea>
-          <button id='copy' onClick={handleCopy} ><img src='../styles/logos/mockerblack.png' alt="copy to clipboard" id='copy-image' /></button>
-        </div>
-        <div id = 'add_and_submit'>
-          <button id="submit_button" onClick={handleSubmit}>Generate Data</button>
-        </div>
+      <div id='form'>
+        <label id='quantity_selector-label'> Quantity:
+          <input ref={quantInput} id="quantity_selector" type="number" min = '1' max = '1000' defaultValue= '5'/>
+        </label>
+        <select ref={dataInput} name="dataSelect" id="dataSelect">
+          <option value="firstName">First Name</option>
+          <option value="fullName">Full Name</option>
+          <option value="fullNameMiddle">First/Middle/Last Name</option>
+          <option value="gender">Gender</option>
+          <option value="age">Age</option>
+          <option value="email">Email</option>
+          <option value="phoneNumber">Phone Number</option>
+          <option value="postalCode">Postal Code</option>
+          <option value="country">Country</option>
+          <option value="totalPurchaseVal">Total Purchases Value</option>
+          <option value="numOfPurchases">Number of Purchases</option>
+          <option value="frequency">Frequency</option>
+        </select>
+        <button id='add_button' onClick={handleAdd} >Add Data Type</button>
+      </div>
+      <div id="datatype_selector">
+        <DataSelector dataTypes={dataTypes} handleDelete={handleDelete} />
+      </div>
+      {/* make a button to add new DataType */}
+      <div id= 'text_box_and_copy'>
+        <textarea ref={textAreaInput} id="text_output">
+        </textarea>
+        <button id='copy' onClick={handleCopy} ><img src='../styles/logos/mockerblack.png' alt="copy to clipboard" id='copy-image' /></button>
+      </div>
+      <div id = 'add_and_submit'>
+        <button id="submit_button" onClick={handleSubmit} >Generate Data</button>
+        <h3>{error}</h3> 
       </div>
     </div>
+  </div>
   )
 };
 
 export default MainContainer;
+

@@ -3,6 +3,7 @@ const {Session} = require('../models/authModels');
 const sessionController = {};
 
 sessionController.isLoggedIn = (req, res, next) => {
+  console.log('in isLoggedIn middleware')
   if (req.cookies.ssid) {
     const { ssid } = req.cookies;
     Session.findOne({ cookieId: ssid })
@@ -22,10 +23,17 @@ sessionController.isLoggedIn = (req, res, next) => {
         return next(newErr);
       })
   } 
-  if (req.query.quantity <= 15) return next();
-  else return res.status(400).json('Please sign up to access larger data quantity');
-  // return res.status(400).json('error' );  
+  return next();
+  // else {
+  //   if (req.query.quantity <= 15) {
+  //     return next();
+  //   } else {
+  //     return res.status(400).json('Please sign up to access larger data quantity');
+  //   }
+  // }
 }
+
+
 
 sessionController.startSession = (req, res, next) => {
   const { _id } = res.locals.user;
