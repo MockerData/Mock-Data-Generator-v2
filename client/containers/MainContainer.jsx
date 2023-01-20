@@ -12,10 +12,11 @@ import copyIcon from '../copyIcon.svg'
 const MainContainer = (props) => {
   const { setLoggedIn, loggedIn, user} = props;
 
-  const [dataTypes, setDataTypes] = useState([])
-  const dataInput = useRef()
-  const quantInput = useRef()
-  const textAreaInput = useRef()
+  const [dataTypes, setDataTypes] = useState([]);
+  const dataInput = useRef();
+  const quantInput = useRef();
+  const textAreaInput = useRef();
+  const [error, setError] = useState('');
 
   function handleAdd(event) {
     const typeOfData = dataInput.current.value;
@@ -56,9 +57,12 @@ const MainContainer = (props) => {
 
     axios.get(fetchString)
     .then((response) => {
+      setError('');
       textAreaInput.current.value = JSON.stringify(response.data, null, 2)
     })
-    .catch((err) => console.log('something wrong with axios request', err))
+    .catch((err) => 
+      setError('Please login to access datasets larger than 15')
+    );
   }
 
   function handleCopy(event) {
