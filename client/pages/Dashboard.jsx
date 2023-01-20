@@ -18,7 +18,6 @@ const Dashboard = (props) => {
 
   return (
     <div id = 'root-child'>
-
       <HeaderContainer user = {user} setLoggedIn = {setLoggedIn} loggedIn = {loggedIn} />
       <MainContainer user = {user} setLoggedIn = {setLoggedIn} loggedIn = {loggedIn} />
       <FooterContainer />
