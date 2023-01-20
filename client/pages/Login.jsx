@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import '../styles/Login.css';
+import { set } from 'mongoose';
 
-const Login = () => {
+const Login = (props) => {
+  const { setLoggedIn, loggedIn } = props;
 
   // useState to update and track the input fields from the login page
   const [password, setPassword] = useState('');
@@ -17,39 +18,44 @@ const Login = () => {
     try {
       const response = await axios.post(`/api/login`, { username, password });
       console.log(response);
-      if (response) navigate('/');
+      if (response){ 
+        setLoggedIn(true);
+        navigate('/')
+      };
     } catch (err) {
       setError('Invalid Username/Password');
       console.log('err:', err)
     }
   };
   return (
-    <div >
+    <div className='Login'>
       {/* display error message if error */}
-      <div>{error}</div>
       {/* useState to track the data in each input field */}
-      <form
+      <form className='login-form'
         onSubmit={handleLogin}
-      >
+        >
+      <img src='../styles/logos/mockerlogo3.png' className='login-logo' alt="" />
+          <h1 className='login-text'>Login</h1>
         <input
           placeholder="Username:"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-        />
+          />
         <input
           type="password"
           placeholder="Password:"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        />
+          />
         <button>Login</button>
+          <div className='error'>{error}</div>
       </form>
-      <div>
+      <div className='login-additional'>
         <br/>
           Don't have an account? 
         <br/>
         <Link to="/signup">
-          Sign up right here!
+          Sign up!
         </Link>
       </div>
     </div>
