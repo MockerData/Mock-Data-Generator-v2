@@ -97,6 +97,10 @@ header {
 }
 
 .header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  /* align-items: center; */
   max-width: 870px;
   width: 55vw; /* note this for header width */
   justify-content: flex-start;
@@ -110,6 +114,30 @@ header h1 {
 
 header h3 {
   font-weight: 400;
+}
+
+.welcome-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  /* margin-top: auto; */
+  /* margin-right: 10px; */
+}
+
+.welcome-message h3 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  
+}
+
+#profile-icon {
+  width: 24px;
+  -webkit-filter: invert(100%);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 /* Main Container Styles */
@@ -141,7 +169,7 @@ header h3 {
 
 #form {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap !important;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -161,6 +189,8 @@ header h3 {
   padding-left: 0.5rem;
   /* box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.79) !important; */
 }
+
+
 
 #dataSelect {
   border: 0.5px solid #FFB61D;
@@ -182,14 +212,19 @@ header h3 {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-top: -3px;
 }
 
 #clear-button {
-  /* padding: 8px 15px; */
+  padding: 8px 15px;
   margin: auto;
   margin-left: -0px;
   color: #FFB61D !important;
   background-color: #333 !important;
+}
+
+#clear-button:hover {
+  background-color: rgb(81, 81, 81) !important;
 }
 
 
@@ -284,7 +319,7 @@ text-decoration: none;
 }
 
 /* New Data Type Styles */
-#new_data_type {
+/* #new_data_type {
 display: flex;
 align-items: center;
 background-color: #f2f2f2;
@@ -304,10 +339,63 @@ margin-left: 10px;
 
 .X-button:hover {
 background-color: #cc0000;
+} */
+
+
+.DataSelector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 20px;
+}
+
+.DataSelector #new_data_type {
+  /* background-color: #000000; */
+  color: black;
+  border-radius: 6px;
+  border: 1px dashed black;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0px 5px 0px 5px;
+  padding: 10px 15px;
+}
+
+.DataSelector .X-button {
+  box-shadow: none !important;
+  background-color: #FFB61D;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.DataSelector .X-button:hover {
+  background-color: #cf730a;
 }
 
 
+
+
+
 /* Login.jsx CSS */
+
+
+.login-logo {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 100px;
+  margin-top: -120px;
+}
+
 
 .Login {
   background-color: #F1F1F1;
@@ -329,8 +417,9 @@ background-color: #cc0000;
   }
 
   .login-text {
+    font-weight: 600;
     margin-top: -80px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 
   
@@ -341,6 +430,8 @@ background-color: #cc0000;
   border: none;
   width: 150%;
   box-shadow: 0px 0px 5px #ccc;
+  font-size: 14px;
+
   }
   
   .Login button {
@@ -370,7 +461,7 @@ background-color: #cc0000;
   .login-additional a {
   text-decoration: none;
   color: #000000;
-  font-weight: bold;
+  font-weight: 700;
   margin-top: 1rem;
   transition: color 0.3s ease;
   }
@@ -408,40 +499,37 @@ background-color: #cc0000;
   }
 
   .signup-text {
+    font-weight: 600;
     margin-top: -80px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 
   .error {
   color: red;
   font-weight: 400;
-  top: 600px;
+  top: 650px;
   position: absolute;
   }
   
   .Signup input {
-  margin: 1rem 0;
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: none;
-  width: 150%;
-  box-shadow: 0px 0px 5px #ccc;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    width: 150%;
+    box-shadow: 0px 0px 5px #ccc;
+    font-size: 14px;
   }
   
   .Signup button {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  background-color: #3498DB;
   color: #fff;
   font-weight: bold;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  }
-  
-  .Signup button:hover {
-  background-color: #2980B9;
   }
 
   .signup-additional {
@@ -455,7 +543,7 @@ background-color: #cc0000;
   .signup-additional a {
   text-decoration: none;
   color: #000000;
-  font-weight: bold;
+  font-weight: 700;
   margin-top: 1rem;
   transition: color 0.3s ease;
   }
@@ -531,3 +619,63 @@ background-color: #cc0000;
     }
   }
     
+
+  @media only screen and (max-width: 755px) {
+    /* changes for elements under 755px width */
+    textarea {
+    border-radius: 6px;
+    }
+    button {
+    font-size: 10px;
+    padding: 4px 8px;
+    }
+    ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    }
+    ::-webkit-scrollbar-track {
+    border-radius: 3px;
+    height: 80%;
+    }
+    header {
+    padding: 8px;
+    }
+    header h1 {
+    font-size: 20px;
+    }
+    header h3 {
+    font-size: 14px;
+    }
+    .mocker-logo {
+    width: 120px;
+    }
+    .header-button {
+    padding: 4px 6px;
+    margin-left: 3px;
+    }
+    #main_container {
+    width: 90%;
+    padding: 8px;
+    }
+    #main_container h2 {
+    font-size: 20px;
+    }
+    .container-2 {
+    width: 98%;
+    padding: 8px;
+    }
+    #form {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    }
+    #quantity_selector-label {
+    font-size: 12px;
+    margin-right: 3px;
+    }
+    #quantity_selector {
+    width: 30px;
+    }
+    }

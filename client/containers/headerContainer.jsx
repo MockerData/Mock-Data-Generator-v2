@@ -9,9 +9,9 @@ const HeaderContainer = (props) => {
         <div className="header-text">
           {/* <h1>Mock Data Generator</h1> */}
           <img src='../styles/logos/mockerwhite.png' className='mocker-logo' alt="" />
-          <h3>Generate mock data for your database.</h3>
+          {/* <h3>Generate mock data for your database.</h3> */}
         </div>
-        {loggedIn && <h1 style={{fontWeight: '400'}}>Welcome {user.username}</h1>}
+        {loggedIn && <div className="welcome-message"><img id='profile-icon' src="../styles/logos/user.png" alt="" /> <h3>{user.username}</h3> </div>}
         {!loggedIn && <div className="header-buttons">
           <Link to="/login">
             <button className="header-button">Login</button>
@@ -25,3 +25,4 @@ const HeaderContainer = (props) => {
 }
 
 export default HeaderContainer;
+

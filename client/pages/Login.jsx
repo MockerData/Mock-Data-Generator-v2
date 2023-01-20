@@ -29,6 +29,7 @@ const Login = () => {
       <form className='login-form'
         onSubmit={handleLogin}
         >
+      <img src='../styles/logos/mockerlogo3.png' className='login-logo' alt="" />
           <h1 className='login-text'>Login</h1>
         <input
           placeholder="Username:"
@@ -49,7 +50,7 @@ const Login = () => {
           Don't have an account? 
         <br/>
         <Link to="/signup">
-          Sign up right here!
+          Sign up!
         </Link>
       </div>
     </div>

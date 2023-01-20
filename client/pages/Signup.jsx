@@ -29,7 +29,8 @@ const SignUp = () => {
       {/* display error message if error */}
       {/* useState to track the data in each input field */}
         <form className='signup-form' onSubmit={handleSignUp}>
-        <h1 className='signup-text'>Signup</h1>
+        <img src='../styles/logos/mockerlogo3.png' className='login-logo' alt="" />
+        <h1 className='signup-text'>Sign Up</h1>
 
           <input
             placeholder='Username:'
@@ -50,7 +51,7 @@ const SignUp = () => {
             Have an account already? 
           <br/>
           <Link to="/login">
-            Login right here!
+            Login!
           </Link>
       </div>
     </div>

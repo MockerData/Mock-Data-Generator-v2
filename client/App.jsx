@@ -11,7 +11,7 @@ import Dashboard from './pages/Dashboard.jsx';
 
 const App = () => {
   const [user, setUser] = useState({username: 'test'});
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <div id = 'root-child'>
