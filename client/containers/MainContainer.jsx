@@ -101,7 +101,10 @@ const MainContainer = (props) => {
           <option value="numOfPurchases">Number of Purchases</option>
           <option value="frequency">Frequency</option>
         </select>
-        <button id='add_button' onClick={handleAdd} >Add Data Type</button>
+        <div className="dt-buttons">
+          <button id='add_button' onClick={handleAdd} >Add Data Type</button>
+          {dataTypes.length !== 0 && <button id='clear-button' onClick={() => setDataTypes([])}>Clear</button>}
+        </div>
       </div>
       <div id="datatype_selector">
         <DataSelector dataTypes={dataTypes} handleDelete={handleDelete} />
@@ -122,4 +125,6 @@ const MainContainer = (props) => {
 };
 
 export default MainContainer;
+
+
 
