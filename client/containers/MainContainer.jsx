@@ -99,7 +99,7 @@ const MainContainer = (props) => {
           <button id='copy' onClick={handleCopy} ><img src='../styles/logos/mockerblack.png' alt="copy to clipboard" id='copy-image' /></button>
         </div>
         <div id = 'add_and_submit'>
-          <button id="submit_button" onClick={handleSubmit} >Generate Data</button>
+          <button id="submit_button" onClick={handleSubmit}>Generate Data</button>
         </div>
       </div>
     </div>
