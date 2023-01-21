@@ -4,12 +4,14 @@ const path = require('path')
 const app = express()
 const apiRouter = require('./routers/apiRouter.js')
 const PORT = process.env.PORT || 3000
+const cookieParser = require('cookie-parser');
 
-const MONGO_URI = 'mongodb+srv://user:user@our-mockdata-storage.ghivuab.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URI = 'mongodb+srv://mock:data@cluster0.aa2renn.mongodb.net/?retryWrites=true&w=majority';
 
 // account for incoming data
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser());
 
 // deal with cors headers
 app.use((req, res, next) => {
